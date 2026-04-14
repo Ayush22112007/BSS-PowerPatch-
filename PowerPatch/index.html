@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | LeakXpert (Bhagyodaya Sales and Services)</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7C1T34HEWS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('js', new Date());
+
+    // FIRST configure
+    gtag('config', 'G-7C1T34HEWS', {
+      debug_mode: true
+    });
+    // THEN send event
+    gtag('event', 'page_view', {
+      page_title: document.title,
+      page_location: window.location.href
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- Top Info Bar -->
+  <div class="top-header">
+    <span>📞 9604 916 916</span>
+    <span>✉ leakxpert@gmail.com</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo-container">
+      <div class="brand-text-container">
+        <a href="index.html" class="brand-text"><span class="leak">Leak</span><span class="xpert">Xpert</span></a>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#products" class="active">Products</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+
+    <div class="nav-icons">
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search compounds...">
+        <span id="search-icon">🔍</span>
+      </div>
+      <span id="cart-icon" style="position:relative; cursor:pointer;">
+        🛍️<span id="cart-badge">0</span>
+      </span>
+      <span style="font-size:1.5rem; margin-left:10px; cursor:pointer;">☰</span>
+    </div>
+  </nav>
+
+  <section class="page-banner">
+    <h1>Stop Transformer Oil Leaks Without Shutdown</h1>
+    <p>Industrial-grade sealing solution for live systems under pressure</p>
+    <div class="hero-image">
+      <img src="images/hero-live-repair.jpeg" alt="Live Transformer Leak Repair" loading="eager">
+    </div>
+  </section>
+
+  <!-- Page Banner -->
+  <header class="page-banner">
+    <h1>BROWSE OUR PRODUCTS</h1>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> &nbsp;&gt;&nbsp; BROWSE OUR PRODUCTS
+    </div>
+  </header>
+
+  <!-- High-Priority Actions (Manager Requested) -->
+  <section class="manager-cta-banner">
+    <div class="cta-buttons-container">
+
+      <a href="#contact" class="cta-btn btn-site-assessment">
+        <div class="cta-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        </div>
+        <div class="cta-text">
+          <span class="cta-main">Request Site Assessment</span>
+          <span class="cta-sub">Book a free consultation</span>
+        </div>
+        <div class="cta-arrow">→</div>
+      </a>
+
+      <a href="#" class="cta-btn btn-yellow"
+        onclick="event.preventDefault(); showToast('Catalog download coming soon!', 'info')">
+        <div class="cta-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+        </div>
+        <div class="cta-text">
+          <span class="cta-main">Download Product Catalog</span>
+          <span class="cta-sub">Full specs & data sheets (PDF)</span>
+        </div>
+        <div class="cta-arrow">↓</div>
+      </a>
+
+      <a href="#" class="cta-btn btn-red"
+        onclick="event.preventDefault(); showToast('Learn more about PowerPatch technology.', 'info')">
+        <div class="cta-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+        </div>
+        <div class="cta-text">
+          <span class="cta-main">Know About PowerPatch</span>
+          <span class="cta-sub">Our flagship sealing technology</span>
+        </div>
+        <div class="cta-arrow">→</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Stats Counter Strip -->
+  <section class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-number-row">
+        <div class="stat-number" data-target="500">0</div>
+        <div class="stat-suffix">+</div>
+      </div>
+      <p>Projects Completed</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number-row">
+        <div class="stat-number" data-target="15">0</div>
+        <div class="stat-suffix">+</div>
+      </div>
+      <p>Years Experience</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number-row">
+        <div class="stat-number" data-target="99">0</div>
+        <div class="stat-suffix">%</div>
+      </div>
+      <p>Uptime Record</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number-row">
+        <div class="stat-number" data-target="50">0</div>
+        <div class="stat-suffix">+</div>
+      </div>
+      <p>Industrial Clients</p>
+    </div>
+  </section>
+
+  <main class="shop-container">
+
+    <!-- Shop Controls -->
+    <div class="shop-controls">
+      <div class="result-count">
+        Showing 1–4 of 4 results
+      </div>
+      <div class="sort-dropdown">
+        <select>
+          <option>Default sorting</option>
+          <option>Sort by popularity</option>
+          <option>Sort by latest</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <section class="product-highlight shop-container">
+      <div class="product-highlight-wrapper">
+
+        <!-- LEFT: IMAGE -->
+        <div class="product-highlight-image">
+          <img src="transformer leak repair.jpeg" alt="Transformer Leak Repair">
+        </div>
+
+        <!-- RIGHT: CONTENT -->
+        <div class="product-highlight-content">
+
+          <span class="category-tag">Transformer Maintenance</span>
+
+          <h1 class="product-title-large">
+            Transformer Oil Leak Sealing Kit
+          </h1>
+
+          <p class="product-desc">
+            A two-part structural epoxy system designed for live leak sealing under pressure. 
+            Eliminates downtime and ensures long-term durability across transformer systems.
+          </p>
+
+          <!-- SPECS -->
+          <div class="product-specs-grid">
+            <div><strong>Temp:</strong> -40°C to 300°C</div>
+            <div><strong>Pressure:</strong> Up to 250 bar</div>
+            <div><strong>Cure:</strong> 30 min</div>
+            <div><strong>Application:</strong> Live systems</div>
+          </div>
+
+          <!-- CTA -->
+          <div class="product-actions">
+            <button class="cta-btn btn-red add-cart-btn" data-name="Transformer Leak Kit" data-price="1295">
+              &nbsp;&nbsp;🛒 Add to Cart
+            </button>
+
+            <a href="#contact" class="cta-btn btn-green">
+              &nbsp;&nbsp;Request Consultation →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Issues Section -->
+    <section class="issues-section">
+      <div class="container">
+
+        <h2 class="section-title">
+          Why Transformer Oil Leaks Are Critical
+        </h2><br>
+
+        <div class="issues-grid">
+
+          <div class="issue-box">
+            <h3>Unplanned Downtime</h3>
+            <p>Transformer shutdowns can occur within minutes, causing production loss and operational disruption.</p><br>
+            <img src="images/leak-radiator.jpeg" alt="Radiator leakage">
+          </div>
+
+          <div class="issue-box">
+            <h3>Fire & Safety Risk</h3>
+            <p>Leakage near energized components increases risk of arc flash and fire hazards.</p>
+            <img src="images/leak-corrosion.jpeg" alt="Corrosion leak">
+          </div>
+
+          <div class="issue-box">
+            <h3>Environmental Liability</h3>
+            <p>Oil spills lead to contamination, regulatory penalties, and costly cleanup operations.</p>
+            <img src="images/live-leak-wipe.jpeg" alt="Heavy oil leakage">
+          </div>
+
+          <div class="issue-box">
+            <h3>Equipment Degradation</h3>
+            <p>Continuous leakage reduces insulation efficiency and shortens equipment lifespan.</p>
+            <img src="images/leak-bushing-drip.jpeg" alt="Oil leakage from bushing">
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Before-After Section -->
+    <section class="before-after">
+      <div class="container">
+
+        <h2 class="section-title"><font size="8">Real Field Results</font></h2><br>
+
+        <div class="ba-grid">
+
+          <!-- BEFORE -->
+          <div class="ba-card before">
+            <img src="images/before-leak.jpeg" alt="Before leakage" loading="lazy">
+            <p>Before – Active Leakage</p>
+          </div>
+
+          <!-- AFTER -->
+          <div class="ba-card after">
+            <img src="images/after-seal.jpeg" alt="After sealing" loading="lazy">
+            <p>After – Sealed & Protected</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Live Application Section -->
+    <section class="live-section">
+      <div class="container">
+
+        <h2 class="section-title">Applied Under Live Conditions</h2>
+
+        <div class="live-grid">
+
+          <div class="live-card">
+            <img src="images/application-field-work.jpeg" loading="lazy">
+            <p>On-site repair without shutdown</p>
+          </div>
+
+          <div class="live-card">
+            <img src="images/surface-preparation.jpeg" loading="lazy">
+            <p>Surface preparation process</p>
+          </div>
+
+          <div class="live-card">
+            <img src="images/live-leak-wipe.jpeg" loading="lazy">
+            <p>Handling active leakage safely</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Additional Content Area -->
+    <section class="additional-content">
+      <div class="content-info">
+        <h2 class="leakxpert-heading">Expert Leak Sealing Solutions Without Costly Shutdowns</h2>
+        <p>At LeakXpert (Bhagyodaya Sales and Services), we understand that in industrial environments, downtime
+          directly translates to revenue loss. Our products are rigorously engineered to provide robust, long-term seals
+          while your systems remain completely operational under extreme temperature and pressure.</p>
+        <p>As authorized partners for global structural seal providers, we offer direct access to state-of-the-art
+          repair formulations.</p>
+
+        <ul class="advantages-list">
+          <li>Extensive Compatibility (Steam, Water, Complex Hydrocarbons)</li>
+          <li>Temperature Endurance up to 300°C+ depending on exact formulation</li>
+          <li>Applicable to Valves, Flanges, Transformers, & Pipelines</li>
+          <li>ISO 9001:2015 Assured Manufacturing Standards</li>
+        </ul>
+      </div>
+
+      <div class="tech-support-box">
+        <h3>Need Technical Guidance?</h3>
+        <p>Every industrial infrastructure failure is unique. Our structural engineers are available round-the-clock to
+          consult on your specific fluid parameters and recommend the exact chemical sealant required.</p>
+        <a href="#contact" class="contact-btn">Speak to an Engineer →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Client Logos Strip -->
+  <section class="clients-strip">
+    <h3 class="leakxpert-heading center">Trusted By Industry Leaders</h3>
+    <div class="client-logos">
+      <div class="client-logo-item">⚡ Power Generation</div>
+      <div class="client-logo-item">🛢 Oil &amp; Gas</div>
+      <div class="client-logo-item">🚂 Railways</div>
+      <div class="client-logo-item">🏭 Steel Plants</div>
+      <div class="client-logo-item">💧 Water Treatment</div>
+      <div class="client-logo-item">✈ Defence</div>
+    </div>
+  </section>
+
+  <!-- Sidebar Cart UI -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="close-btn" id="closeCartBtn">×</button>
+    </div>
+    <div class="cart-items" id="cartItemsContainer">
+      <!-- Items inject here -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotalPrice">$0.00</span>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn">Buy Now (Checkout)</button>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Product Quick-View Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="product-modal" id="productModal">
+      <button class="modal-close" id="modalClose">×</button>
+      <div class="modal-body">
+        <div class="modal-img-wrap">
+          <img id="modalImg" src="" alt="">
+        </div>
+        <div class="modal-details">
+          <span class="modal-category" id="modalCategory"></span>
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <p class="modal-desc" id="modalDesc"></p>
+          <div class="modal-specs-block">
+            <h4>Technical Specifications</h4>
+            <p id="modalSpecs"></p>
+          </div>
+          <div class="modal-apps-block">
+            <h4>Applications</h4>
+            <p id="modalApps"></p>
+          </div>
+          <div class="modal-actions">
+            <button class="modal-cart-btn" id="modalCartBtn">🛒 Add to Cart</button>
+            <a href="#contact" class="modal-enquiry-btn">✉ Send Enquiry</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="shop-container">
+    <h2 class="leakxpert-heading center">Get Expert Assistance</h2>
+
+    <div class="contact-container">
+      
+      <!-- LEFT: FORM -->
+      <div class="contact-form-section">
+        <h2>Send Technical Inquiry</h2>
+        <p>Have an active leak or need structural sealing guidance? Our engineers will reach out to assess your parameters.</p>
+        
+        <form class="contact-form">
+          
+          <div class="form-row">
+            <div class="form-group half-width">
+              <label>First Name</label>
+              <input type="text" placeholder="John" required>
+            </div>
+
+            <div class="form-group half-width">
+              <label>Last Name</label>
+              <input type="text" placeholder="Doe" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group half-width">
+              <label>Email</label>
+              <input type="email" placeholder="john@company.com" required>
+            </div>
+
+            <div class="form-group half-width">
+              <label>Phone</label>
+              <input type="tel" placeholder="+91 98765 43210" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Industry</label>
+            <select required>
+              <option disabled selected>Select an option</option>
+              <option>Power Generation</option>
+              <option>Petrochemical</option>
+              <option>Water Treatment</option>
+              <option>General Industrial</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Issue Description</label>
+            <textarea placeholder="Describe your leak issue..." required></textarea>
+          </div>
+
+          <button type="submit" class="cta-btn btn-red">Submit Inquiry →</button>
+
+        </form>
+      </div>
+
+      <!-- RIGHT: INFO -->
+      <div class="contact-info-section">
+        <h3>Corporate Office</h3>
+        
+        <div class="info-block">
+          <h4>📍 Headquarters</h4>
+          <p>Bhagyodaya Sales and Services<br>
+          Navi Mumbai, Maharashtra, India</p>
+        </div>
+
+        <div class="info-block">
+          <h4>📞 Technical Helpline</h4>
+          <p>+91 9604 916 916<br>
+          24/7 Support Available</p>
+        </div>
+
+        <div class="info-block">
+          <h4>📧 Email</h4>
+          <p>leakxpert@gmail.com</p>
+        </div>
+
+        <div class="info-block highlight">
+          <h4>Industrial Support</h4>
+          <p>Contact us for bulk procurement, technical consultation, and on-site sealing services.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer>
+    <p>&copy; 2026 <strong>LeakXpert (Bhagyodaya Sales and Services)</strong>. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Back To Top Button -->
+  <button class="back-to-top" id="backToTop" title="Back to top">↑</button>
+
+  <script src="app.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWHLZ1qRzDQIEpBZ0TZSzt_cdTx27toG4",
+      authDomain: "powerpatch-7d9ae.firebaseapp.com",
+      projectId: "powerpatch-7d9ae",
+      appId: "1:370451089713:web:42109b8cd0084da3184810"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Make global
+    window.db = db;
+    window.addDoc = addDoc;
+    window.collection = collection;
+  </script>
+
+</body>
+</html>
