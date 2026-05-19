@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeakXpert™ | SF6 Leak Repair System</title>
+    <meta name="description"
+        content="LeakXpert™ advanced SF6 leak repair system for GIS, switchgear, and transformers. Stop gas leaks without shutdown.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="industrial-theme">
+    <!-- Navbar — Transparent on red hero -->
+    <nav class="navbar navbar--hero sticky top-0 z-50">
+        <div class="container mx-auto px-5 py-4 flex justify-between items-center">
+            <div class="logo-container">
+                <a href="index.html" class="brand-text text-3xl font-black">
+                    <span class="leak">LeakXpert™</span>
+                </a>
+            </div>
+
+            <div class="nav-links hidden md:flex">
+                <a href="index.html">HOME</a>
+
+                <div class="dropdown">
+                    <a href="#" class="nav-link">PRODUCTS ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="index.html">PowerPatch</a>
+                        <a href="sf6.html">SF6 Leak Repair</a>
+                    </div>
+                </div>
+
+                <a href="#contact">CONTACT US</a>
+            </div>
+
+            <div class="nav-icons flex gap-6 items-center">
+                <div class="search-container relative hidden sm:block">
+                    <input type="text" id="search-input" placeholder="Search systems..."
+                        class="w-0 opacity-0 focus:w-48 focus:opacity-100 transition-all border-b-2 border-white bg-transparent outline-none py-1 text-white">
+                    <span id="search-icon" class="cursor-pointer text-xl">🔍</span>
+                </div>
+                <span id="cart-icon" class="relative cursor-pointer text-2xl">
+                    🛍️<span id="cart-badge"
+                        class="absolute -top-2 -right-2 bg-white text-[#ea1f22] text-[10px] px-1.5 py-0.5 rounded-full font-black">0</span>
+                </span>
+                <button id="menu-toggle" class="md:hidden text-white text-2xl">
+                    ☰
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden">
+            <a href="index.html">PowerPatch</a>
+            <a href="sf6.html">SF6 Leak Repair</a>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO — BOLD RED -->
+    <section class="hero-section hero-section--red">
+        <div class="container mx-auto px-5">
+            <div class="hero-layout">
+                <div class="hero-text">
+                    <span class="hero-tag">⚡ SF6 Leak Sealing</span>
+                    <h1>Stop SF6 Gas Leaks Without Shutdown</h1>
+                    <p>Advanced leak-sealing system engineered for SF6-filled electrical equipment. Fast repair, durable sealing, zero downtime.</p>
+                    <div class="hero-btns">
+                        <a href="#products" class="btn-core btn-hero-white">View Products</a>
+                        <a href="#contact" class="btn-core btn-hero-outline">Get Quote →</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrap">
+                    <img src="images/top-img.jpeg" alt="Live SF6 Leak Repair" loading="eager">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS STRIP — DARK -->
+    <section class="stats-strip stats-strip--dark">
+        <div class="container mx-auto px-5 grid grid-cols-2 lg:grid-cols-4 gap-12">
+            <div class="stat-item">
+                <span class="stat-number" data-target="500">500</span>
+                <p class="stat-label">Projects Completed</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="15">15</span>
+                <p class="stat-label">Years Experience</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="99">99</span>
+                <p class="stat-label">Uptime Record</p>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" data-target="50">50</span>
+                <p class="stat-label">Industrial Clients</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: WHAT IS LEAKXPERT — WHITE -->
+    <section class="about-section py-20 bg-white">
+        <div class="container mx-auto px-5">
+            <div class="impact-content">
+                <div class="impact-text">
+                    <span class="section-badge">🛡️ About LeakXpert™</span>
+                    <h2 class="uppercase tracking-tighter">Advanced SF6 Leak Sealing Technology</h2>
+                    <p>LeakXpert™ is a specialized sealing system engineered for SF6 gas applications. It stops active leaks quickly and creates a durable, long-lasting seal without shutdown.</p>
+                    <div class="about-features">
+                        <div class="about-feat"><span>✓</span> SF6 Gas Compatible</div>
+                        <div class="about-feat"><span>✓</span> Fast Leak Repair</div>
+                        <div class="about-feat"><span>✓</span> Non-Conductive</div>
+                        <div class="about-feat"><span>✓</span> Weather & UV Resistant</div>
+                    </div>
+                </div>
+                <div class="impact-image-overlay">
+                    <img src="images/sf6-box.jpeg" alt="SF6 Leak Repair" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="manager-cta-banner">
+        <div class="container mx-auto px-5 flex flex-wrap justify-center gap-6">
+            <a href="#contact" class="cta-btn group">
+                <div class="cta-icon">👤</div>
+                <div class="cta-text">
+                    <span>Request Site Assessment</span>
+                    <span>Book a free consultation</span>
+                </div>
+                <div class="cta-arrow px-4 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
+                    →</div>
+            </a>
+            <a href="#" class="cta-btn group">
+                <div class="cta-icon">📄</div>
+                <div class="cta-text">
+                    <span>Download Catalog</span>
+                    <span>Full specs & data sheets</span>
+                </div>
+                <div class="cta-arrow px-4 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
+                    ↓</div>
+            </a>
+            <a href="#" class="cta-btn group">
+                <div class="cta-icon">🛡️</div>
+                <div class="cta-text">
+                    <span>Know About LeakXpert</span>
+                    <span>Flagship Sealing Technology</span>
+                </div>
+                <div class="cta-arrow px-4 opacity-30 group-hover:opacity-100 group-hover:translate-x-1 transition-all">
+                    →</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 3: PRODUCT HIGHLIGHT -->
+    <section id="products" class="product-highlight-section py-20 bg-white">
+        <div class="container mx-auto px-5">
+            <div class="product-highlight-wrap grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="product-gallery-wrap">
+                    <!-- Main Image Top -->
+                    <div class="product-main-image-wrap">
+                        <img id="main-product-img" src="images/sf6-box.jpeg" alt="Main Product Image">
+                    </div>
+                    <!-- Thumbnails Bottom -->
+                    <div class="product-thumbnail-list scrollbar-hide">
+                        <img src="images/sf6-box.jpeg" alt="Thumbnail 1"
+                            class="thumbnail-item active">
+                        <img src="images/sf6-inside.jpeg" alt="Thumbnail 2"
+                            class="thumbnail-item">
+                    </div>
+                </div>
+                <div class="product-content">
+                    <span
+                        class="category-tag text-[#2590cb] font-bold uppercase text-xs tracking-widest mb-2 block">High Voltage Equipment</span>
+                    <h2 class="text-4xl font-black text-[#393185] mb-6">LeakXpert™ – SF6 Leak Repair Kit</h2>
+                    <p class="text-gray-600 text-lg mb-8">Specialized leak-sealing system for SF6 gas equipment including GIS, switchgear, and transformers. Stops active leaks instantly and ensures long-term sealing.</p>
+                    <div class="specs-grid grid grid-cols-2 gap-4 mb-8">
+                        <div class="p-4 bg-[#f4f6ff] rounded-xl border border-gray-200">
+                            <strong>Temp:</strong> -40°C to 150°C
+                        </div>
+                        <div class="p-4 bg-[#f4f6ff] rounded-xl border border-gray-200">
+                            <strong>Pressure:</strong> Up to 200 psi
+                        </div>
+                    </div>
+                    <div class="price text-3xl font-black text-[#ea1f22] mb-8">₹1,500</div>
+                    <div class="product-actions flex gap-4">
+                        <button
+                            class="buy-now-btn bg-[#ea1f22] text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider shadow-lg hover:bg-red-700 transition-all flex-1"
+                            data-name="SF6 Leak Repair Kit" data-price="1500">
+                            🛒 Add to Cart
+                        </button>
+                        <a href="#contact"
+                            class="request-quote-btn flex-1 bg-[#393185] text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider shadow-lg hover:bg-[#2e276d] transition-all text-center">
+                            Request Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: ISSUES — LIGHT GRAY -->
+    <section class="issues-section py-20">
+        <div class="container mx-auto px-5">
+            <h2 class="text-4xl font-black text-[#393185] mb-4 text-center">
+                SF6 Gas Leaks Can Compromise Safety & Reliability
+            </h2>
+
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+                SF6 gas leaks can lead to pressure loss, insulation failure, and regulatory risks if not addressed immediately.
+            </p>
+            <div class="issues-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="issue-box">
+                    <img src="images/flange-seal-issue.jpeg" alt="Radiator leakage">
+                    <h3>Flange Seal Issue</h3>
+                    <p>
+                    Uneven sealant indicates leakage and poor gasket sealing.
+                    </p>
+                </div>
+                <div class="issue-box">
+                    <img src="images/corrosion-&-leakage.jpeg" alt="Corrosion leak">
+                    <h3>Corrosion & Leakage</h3>
+                    <p>Rust and sealant show aging and possible flange leaks.</p>
+                </div>
+                <div class="issue-box">
+                    <img src="images/joint-deterioration.jpeg" alt="Heavy oil leakage">
+                    <h3>Joint Deterioration</h3>
+                    <p>Surface damage and sealing issues suggest maintenance need.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: BEFORE/AFTER — DARK -->
+    <section class="before-after-section py-20">
+        <div class="container mx-auto px-5 text-center">
+            <h2 class="text-4xl font-black mb-12">Real Field Results</h2>
+            <div class="ba-grid flex flex-col md:flex-row items-center justify-center gap-12">
+                <div class="ba-card relative max-w-md w-full">
+                    <img src="images/before-leak.jpeg" alt="Before Leak" class="rounded-2xl shadow-xl w-full">
+                </div>
+                <div class="ba-arrow">→</div>
+                <div class="ba-card relative max-w-md w-full">
+                    <img src="images/after-seal.jpeg" alt="After Seal" class="rounded-2xl shadow-xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: LIVE APPLICATION — WHITE -->
+    <section class="live-section py-20 bg-white">
+        <div class="container mx-auto px-5">
+            <h2 class="text-4xl font-black text-[#393185] mb-12 text-center">Live Application</h2>
+            <div class="live-grid grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="live-card">
+                    <img src="images/application-field-work.jpeg" alt="Field Work">
+                    <p>On-site repair without shutdown</p>
+                </div>
+                <div class="live-card">
+                    <img src="images/surface-preparation.jpeg" alt="Surface Preparation">
+                    <p>High-precision surface prep</p>
+                </div>
+                <div class="live-card">
+                    <img src="images/live-leak-wipe.jpeg" alt="Live Leak Handling">
+                    <p>Active leakage stabilization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION — DARK CHARCOAL -->
+    <section id="contact" class="contact-section py-20">
+        <div class="container mx-auto px-5 grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div>
+                <h2 class="text-5xl font-black mb-8">Get Expert Assistance</h2>
+                <p class="text-xl mb-12" style="color: rgba(255,255,255,0.7);">Have an active SF6 leak or need gas sealing assistance? Our engineers will guide you.</p>
+                <div class="info-blocks space-y-10">
+                    <div>
+                        <h4 class="font-black uppercase text-xs tracking-widest mb-2" style="color: #ea1f22;">Corporate
+                            Office</h4>
+                        <p class="font-medium" style="color: rgba(255,255,255,0.85);">Navi Mumbai, Maharashtra, India
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-black uppercase text-xs tracking-widest mb-2" style="color: #ea1f22;">Emergency
+                            Helpline</h4>
+                        <p class="text-3xl font-black" style="color: #ffffff;">+91 9604 916 916</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-card bg-white rounded-3xl p-10 shadow-2xl">
+                <form class="contact-form space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="First Name"
+                            class="w-full p-4 bg-gray-100 border-none rounded-xl text-black">
+                        <input type="text" placeholder="Last Name"
+                            class="w-full p-4 bg-gray-100 border-none rounded-xl text-black">
+                    </div>
+                    <input type="email" placeholder="Email"
+                        class="w-full p-4 bg-gray-100 border-none rounded-xl text-black">
+                    <input type="tel" placeholder="Phone"
+                        class="w-full p-4 bg-gray-100 border-none rounded-xl text-black">
+                    <textarea placeholder="Describe the leak parameters (Pressure, Temp)..."
+                        class="w-full p-4 bg-gray-100 border-none rounded-xl text-black h-32"></textarea>
+                    <button
+                        class="w-full bg-[#ea1f22] text-white py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-red-700 transition-all">Submit
+                        Inquiry →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <footer class="footer bg-black text-white py-12 text-center text-sm opacity-60">
+            <p>&copy; 2026 LeakXpert™ Industrial Sealing Systems.</p>
+        </footer>
+    </div>
+
+    <!-- Sticky Bottom Bar -->
+    <div class="sticky-bar">
+        <a href="tel:9604916916">📞 9604 916 916</a>
+        <a href="mailto:leakxpert@gmail.com">✉ leakxpert@gmail.com</a>
+    </div>
+
+    <!-- Sidebar Cart -->
+    <div class="cart-overlay fixed inset-0 bg-black/50 z-[100] opacity-0 pointer-events-none transition-all"
+        id="cartOverlay"></div>
+    <div class="cart-sidebar fixed top-0 right-[-400px] w-full max-w-[400px] h-full bg-white z-[101] shadow-2xl transition-all"
+        id="cartSidebar">
+        <div class="p-8 h-full flex flex-col">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-black text-[#393185]">Procurement Cart</h2>
+                <button id="closeCartBtn" class="text-3xl text-gray-400 hover:text-black">×</button>
+            </div>
+            <div id="cartItemsContainer" class="flex-1 overflow-y-auto space-y-4"></div>
+            <div class="pt-8 border-t border-gray-100">
+                <div class="flex justify-between text-2xl font-black text-[#ea1f22] mb-6">
+                    <span>Total:</span>
+                    <span id="cartTotalPrice">₹0</span>
+                </div>
+                <button id="checkoutBtn"
+                    class="w-full bg-[#393185] text-white py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-black transition-all">Proceed
+                    to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toastContainer" class="fixed bottom-10 right-10 z-[200]"></div>
+
+    <script type="module" src="/app.js"></script>
+</body>
+
+</html>

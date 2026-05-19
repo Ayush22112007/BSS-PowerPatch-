@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details | PowerPatch™</title>
+    <meta name="description" content="Enter your shipping details to complete your PowerPatch™ industrial sealing system order.">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="industrial-theme">
+    <!-- Navbar -->
+    <nav class="navbar sticky top-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-200">
+        <div class="container mx-auto px-5 py-4 flex justify-between items-center">
+            <div class="logo-container">
+                <a href="index.html" class="brand-text text-3xl font-black">
+                    <span class="leak text-black">LeakXpert™</span>
+                </a>
+            </div>
+            <div class="nav-links hidden md:flex gap-10 font-bold uppercase text-xs tracking-wider">
+                <a href="index.html" class="hover:text-[#393185] transition-colors">Home</a>
+                <a href="index.html#products" class="hover:text-[#393185] transition-colors">Products</a>
+                <a href="index.html#contact" class="hover:text-[#393185] transition-colors">Contact Us</a>
+            </div>
+            <div class="nav-icons flex gap-6 items-center">
+                <span id="cart-icon" class="relative cursor-pointer text-2xl">
+                    🛍️<span id="cart-badge" class="absolute -top-2 -right-2 bg-[#ea1f22] text-white text-[10px] px-1.5 py-0.5 rounded-full font-black">0</span>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Stepper -->
+    <section class="checkout-progress-section">
+        <div class="container mx-auto px-5">
+            <div class="checkout-stepper">
+                <div class="step completed">
+                    <div class="step-circle">✓</div>
+                    <span class="step-label">Cart</span>
+                </div>
+                <div class="step-line completed-line"></div>
+                <div class="step active">
+                    <div class="step-circle">2</div>
+                    <span class="step-label">Details</span>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-circle">3</div>
+                    <span class="step-label">Payment</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CHECKOUT / CUSTOMER DETAILS SECTION -->
+    <section id="checkout" class="checkout-section py-20">
+        <div class="container mx-auto px-5 max-w-3xl">
+            <div id="checkout-card" class="bg-white/70 backdrop-blur-xl rounded-3xl p-10 shadow-2xl border border-white/50">
+                <h2 class="text-3xl font-black text-[#393185] mb-8 text-center uppercase">Your Order</h2>
+                
+                <div class="checkout-block mb-10 pb-8 border-b border-gray-200">
+                    <h3 class="font-bold mb-4 uppercase text-xs text-gray-500 tracking-widest">Order Summary</h3>
+                    <ul id="checkout-items" class="space-y-3">
+                        <!-- Items inject here -->
+                    </ul>
+                    <div class="total mt-6 text-2xl font-black text-[#ea1f22] flex justify-between">
+                        <span>Grand Total:</span>
+                        <span id="checkout-total">₹0</span>
+                    </div>
+                </div>
+
+                <div class="checkout-block mb-10 pb-8 border-b border-gray-200">
+                    <h3 class="font-bold mb-4 uppercase text-xs text-gray-500 tracking-widest">Shipping Details</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input id="name" placeholder="Full Name" class="w-full p-4 bg-[#f8fafc] border border-gray-200 rounded-xl focus:border-[#393185] outline-none transition-all">
+                        <input id="email" placeholder="Email" class="w-full p-4 bg-[#f8fafc] border border-gray-200 rounded-xl focus:border-[#393185] outline-none transition-all">
+                        <input id="phone" placeholder="Phone" class="w-full p-4 bg-[#f8fafc] border border-gray-200 rounded-xl focus:border-[#393185] outline-none transition-all">
+                        <input id="city" placeholder="City" class="w-full p-4 bg-[#f8fafc] border border-gray-200 rounded-xl focus:border-[#393185] outline-none transition-all">
+                        <input id="address" placeholder="Full Address" class="w-full p-4 bg-[#f8fafc] border border-gray-200 rounded-xl focus:border-[#393185] outline-none transition-all md:col-span-2">
+                        <input id="pincode" placeholder="Pincode" class="w-full p-4 bg-[#f8fafc] border border-gray-200 rounded-xl focus:border-[#393185] outline-none transition-all">
+                    </div>
+                </div>
+
+                <div class="checkout-actions flex gap-4">
+                    <a href="index.html" class="flex-1 bg-gray-100 text-[#393185] py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-gray-200 transition-all text-center">← Back</a>
+                    <button id="place-order-btn" class="flex-1 bg-[#ea1f22] text-white py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-red-700 transition-all shadow-xl shadow-red-500/30">
+                        Proceed to Pay →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+        <footer class="bg-black text-white py-12 text-center text-sm opacity-60">
+            <p>&copy; 2026 PowerPatch™ Industrial Sealing Systems. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Sticky Bottom Bar — BLACK BG -->
+    <div class="sticky-bar">
+        <a href="tel:9604916916">📞 9604 916 916</a>
+        <a href="mailto:leakxpert@gmail.com">✉ leakxpert@gmail.com</a>
+    </div>
+
+    <!-- Sidebar Cart -->
+    <div class="cart-overlay fixed inset-0 bg-black/50 z-[100] opacity-0 pointer-events-none transition-all" id="cartOverlay"></div>
+    <div class="cart-sidebar fixed top-0 right-[-400px] w-full max-w-[400px] h-full bg-white z-[101] shadow-2xl transition-all" id="cartSidebar">
+        <div class="p-8 h-full flex flex-col">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-black text-[#393185]">Procurement Cart</h2>
+                <button id="closeCartBtn" class="text-3xl text-gray-400 hover:text-black">×</button>
+            </div>
+            <div id="cartItemsContainer" class="flex-1 overflow-y-auto space-y-4">
+                <!-- Items here -->
+            </div>
+            <div class="pt-8 border-t border-gray-100">
+                <div class="flex justify-between text-2xl font-black text-[#ea1f22] mb-6">
+                    <span>Total:</span>
+                    <span id="cartTotalPrice">₹0</span>
+                </div>
+                <button id="checkoutBtn" class="w-full bg-[#393185] text-white py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-black transition-all">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toastContainer" class="fixed bottom-10 right-10 z-[200]"></div>
+
+    <script type="module" src="/app.js"></script>
+</body>
+</html>

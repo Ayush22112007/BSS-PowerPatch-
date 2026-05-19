@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Payment | PowerPatch</title>
+    <meta name="description" content="Complete your PowerPatch order with our secure payment options including corporate cards, NEFT/RTGS, and purchase orders.">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="industrial-theme">
+    <!-- Navbar -->
+    <nav class="navbar sticky top-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-200">
+        <div class="container mx-auto px-5 py-4 flex justify-between items-center">
+            <div class="logo-container">
+                <a href="index.html" class="brand-text text-3xl font-black">
+                    <span class="leak text-black">LeakXpert</span>
+                </a>
+            </div>
+            <div class="nav-links hidden md:flex gap-10 font-bold uppercase text-xs tracking-wider">
+                <a href="index.html" class="hover:text-[#393185] transition-colors">Home</a>
+                <a href="index.html#products" class="hover:text-[#393185] transition-colors">Products</a>
+                <a href="index.html#contact" class="hover:text-[#393185] transition-colors">Contact Us</a>
+            </div>
+            <div class="nav-icons flex gap-6 items-center">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Stepper -->
+    <section class="checkout-progress-section">
+        <div class="container mx-auto px-5">
+            <div class="checkout-stepper">
+                <div class="step completed">
+                    <div class="step-circle">✓</div>
+                    <span class="step-label">Cart</span>
+                </div>
+                <div class="step-line completed-line"></div>
+                <div class="step completed">
+                    <div class="step-circle">✓</div>
+                    <span class="step-label">Details</span>
+                </div>
+                <div class="step-line completed-line"></div>
+                <div class="step active">
+                    <div class="step-circle">3</div>
+                    <span class="step-label">Payment</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAYMENT SECTION -->
+    <section class="payment-page-section py-20">
+        <div class="container mx-auto px-5" style="max-width: 1000px;">
+            <div class="payment-card">
+                <div class="payment-methods">
+                    <h3 class="text-2xl font-black text-[#393185] mb-6">Select Payment Method</h3>
+                    
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="card" checked>
+                        <div class="payment-content">
+                            <strong>Industrial Credit / Corporate Card</strong>
+                            <p>Visa, Mastercard, AMEX</p>
+                            <div class="logos" style="margin-top: 5px; opacity: 0.6;">💳 VISA • MASTERCARD • AMEX</div>
+                        </div>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="neft">
+                        <div class="payment-content">
+                            <strong>NEFT / RTGS Transfer</strong>
+                            <p>Direct bank transfer for corporate orders</p>
+                        </div>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="po">
+                        <div class="payment-content">
+                            <strong>Purchase Order (PO)</strong>
+                            <p>For registered industrial partners</p>
+                        </div>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="upi">
+                        <div class="payment-content">
+                            <strong>UPI Payment</strong>
+                            <p>Google Pay, PhonePe, Paytm</p>
+                        </div>
+                    </label>
+
+                    <div class="payment-page-actions flex gap-4" style="margin-top: 2rem;">
+                        <a href="checkout.html" class="flex-1 bg-gray-100 text-[#393185] py-4 rounded-xl font-black text-center uppercase tracking-wider hover:bg-gray-200 transition-all">← Back</a>
+                        <button class="btn-core btn-urgency flex-1" id="completeOrderBtn" onclick="processPayment()">Complete Order</button>
+                    </div>
+                </div>
+
+                <div class="payment-summary">
+                    <div class="checkout-card">
+                        <h3 class="text-xl font-black text-[#393185] mb-4">Review Order</h3>
+                        
+                        <div class="order-items-summary" id="paymentItemsList">
+                            <!-- Injected by JS -->
+                        </div>
+
+                        <div class="customer-summary" id="customerSummary" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-200);">
+                            <!-- Injected by JS -->
+                        </div>
+                        
+                        <div class="total-row">
+                            <span>Grand Total</span>
+                            <span id="finalTotal">₹0</span>
+                        </div>
+                        
+                        <div style="margin-top: 2rem; font-size: 0.85rem; color: var(--gray-800); text-align: center;">
+                            <p>🔒 SSL Encrypted Connection</p>
+                            <p>Industrial Support: 9604 916 916</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer"> 
+        <footer class="bg-black text-white py-12 text-center text-sm opacity-60">
+            <p>&copy; 2026 PowerPatch™ Industrial Sealing Systems. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Sticky Bottom Bar — BLACK BG -->
+    <div class="sticky-bar">
+        <a href="tel:9604916916">📞 9604 916 916</a>
+        <a href="mailto:leakxpert@gmail.com">✉ leakxpert@gmail.com</a>
+    </div>
+
+    <!-- Toast -->
+    <div id="toastContainer" class="fixed bottom-10 right-10 z-[200]"></div>
+
+    <script>
+        function formatINR(amount) {
+            return "₹" + Number(amount).toLocaleString("en-IN");
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const skeleton = document.getElementById('skeleton-screen');
+            let skeletonExpired = false;
+
+            const skeletonTimer = setTimeout(() => {
+                if (!skeletonExpired && skeleton) {
+                    skeleton.classList.add('active');
+                }
+            }, 300);
+
+            const hideSkeleton = () => {
+                skeletonExpired = true;
+                clearTimeout(skeletonTimer);
+                if (skeleton) {
+                    skeleton.classList.remove('active');
+                    skeleton.classList.add('hidden');
+                    setTimeout(() => skeleton.remove(), 500);
+                }
+            };
+
+            window.addEventListener('load', hideSkeleton);
+            setTimeout(hideSkeleton, 5000);
+
+            const total = localStorage.getItem("orderTotal") || 0;
+            let customerData = {};
+            try {
+            customerData = JSON.parse(localStorage.getItem("customerData")) || {};
+            } catch(e) {
+            customerData = {};
+            }
+            const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+            document.getElementById("finalTotal").textContent = formatINR(total);
+
+            // Render order items
+            const itemsList = document.getElementById("paymentItemsList");
+            if (itemsList && cartItems.length > 0) {
+                cartItems.forEach(item => {
+                    const row = document.createElement('div');
+                    row.style.cssText = 'display:flex;justify-content:space-between;padding:0.5rem 0;font-size:0.95rem;';
+                    row.innerHTML = `
+                        <span>${item.name} (${item.productType}) x ${item.qty}</span>
+                        <strong style="color:#ea1f22;">${formatINR(item.price * item.qty)}</strong>
+                    `;
+                    itemsList.appendChild(row);
+                });
+            }
+
+            // Render customer info
+            const summary = document.getElementById("customerSummary");
+            if (customerData.name) {
+                summary.innerHTML = `
+                    <div style="margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--gray-200);">
+                        <p><strong>Ship to:</strong></p>
+                        <p>${customerData.name}</p>
+                        <p>${customerData.address || ''}</p>
+                        <p>${customerData.city || ''} ${customerData.pincode ? ', ' + customerData.pincode : ''}</p>
+                    </div>
+                    <div>
+                        <p><strong>Contact:</strong></p>
+                        <p>${customerData.email || ''}</p>
+                        <p>${customerData.phone || ''}</p>
+                    </div>
+                `;
+            }
+
+            // Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+
+        // Toast
+        window.showToast = function(message, type) {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+            const toast = document.createElement('div');
+            toast.className = `toast ${type} show`;
+            toast.innerText = message;
+            container.appendChild(toast);
+            setTimeout(() => { toast.remove(); }, 3000);
+        };
+
+        function processPayment() {
+            const btn = document.getElementById('completeOrderBtn');
+            btn.disabled = true;
+            btn.innerText = "Processing...";
+            
+            setTimeout(() => {
+                alert("Payment processed successfully!\nYour order has been recorded in our secure database.");
+                localStorage.removeItem("cartItems");
+                localStorage.removeItem("orderTotal");
+                localStorage.removeItem("customerData");
+                window.location.href = "index.html";
+            }, 1500);
+        }
+</script>
+</body>
+</html>
