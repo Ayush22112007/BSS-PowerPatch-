@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wtyf2bllso");
-</script>
-
 <head>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wtyf2bllso");
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PowerPatch™ | Industrial Leak Sealing Systems</title>
@@ -27,16 +27,14 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
     rel="stylesheet">
 
+    <link rel="icon" href="images/favicon.ico">
+
     <!-- CSS -->
     <link rel="stylesheet"
-    href="style.min.css">
+    href="style.css">
 
-    <!-- JS -->
-    <script
-    type="module"
-    defer
-    src="app.min.js">
-    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- Google Analytics -->
 
@@ -91,6 +89,7 @@
                     🛍️<span id="cart-badge"
                         class="absolute -top-2 -right-2 bg-white text-[#ea1f22] text-[10px] px-1.5 py-0.5 rounded-full font-black">0</span>
                 </span>
+
                 <button id="menu-toggle" class="md:hidden text-white text-2xl">
                     ☰
                 </button>
@@ -1056,11 +1055,20 @@
                         Gun Tool 50-11 for Cartridge Dispensing</p>
                     <div class="price text-3xl font-black text-[#ea1f22] mb-8">₹50,000</div>
                         <div class="product-actions flex gap-4">
-                        <button id="btn-add-cart"
-                            class="buy-now-btn bg-[#ea1f22] text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider shadow-lg hover:bg-red-700 transition-all flex-1"
-                            data-name="Transformer Leak Kit" data-price="50000">
-                            🛒 Add to Cart
-                        </button>
+                            <button id="btn-add-cart"
+                            class="buy-now-btn add-cart-btn"
+                            data-name="Transformer Leak Kit"
+                            data-price="50000">
+                                <div class="integrated-stepper flex items-center justify-between w-full h-full px-4">
+                                    <div class="stepper-action minus-noop flex items-center justify-center w-10 h-10 rounded-full text-white/40 cursor-not-allowed select-none transition-colors" data-action="minus-noop">
+                                         <i data-lucide="minus" class="w-4 h-4 opacity-50"></i>
+                                    </div>
+                                    <span class="qty-val font-black text-white text-base">🛒 Add to Cart</span>
+                                    <div class="stepper-action plus flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/20 text-white transition-colors" data-action="plus">
+                                        <i data-lucide="plus" class="w-4 h-4"></i>
+                                    </div>
+                                </div>
+                            </button>
                         <a href="#contact"
                             class="request-quote-btn flex-1 bg-[#393185] text-white px-8 py-4 rounded-xl font-bold uppercase tracking-wider shadow-lg hover:bg-[#2e276d] transition-all text-center">
                             Talk to an Expert
