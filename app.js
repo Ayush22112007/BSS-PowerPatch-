@@ -372,6 +372,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeCartDiv = document.getElementById('closeCart');
 
     function toggleCart(){
+
+        gtag(
+            'event',
+            'cart_opened'
+        );
+
         cartSidebar?.classList.toggle("open");
         cartOverlay?.classList.toggle("show");
     }
@@ -600,4 +606,49 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     }
 
+});
+
+document
+.getElementById("btn-add-cart")
+?.addEventListener("click",()=>{
+    gtag(
+    'event',
+    'add_to_cart',
+    {
+        product:'Transformer Leak Kit',
+        price:50000
+    });
+});
+
+checkoutBtn?.addEventListener(
+    "click",
+    ()=>{
+    gtag(
+        'event',
+        'begin_checkout'
+    );
+});
+
+let tracked=[];
+
+window.addEventListener(
+"scroll",
+()=>{
+    const percent=Math.round(
+    (window.scrollY/
+    (document.body.scrollHeight-window.innerHeight))*100
+    );
+    [25,50,75,100]
+    .forEach(mark=>{
+    if(
+    percent>=mark &&
+        !tracked.includes(mark)
+        ){
+        tracked.push(mark);
+        gtag(
+        'event',
+        `scroll_${mark}`
+        );
+        }
+    });
 });
