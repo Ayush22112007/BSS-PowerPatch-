@@ -103,25 +103,35 @@
         </div>
     </nav>
 
-   <!-- SECTION 1: CINEMATIC HERO -->
+    <!-- SECTION 1: CINEMATIC HERO -->
     <section class="hero-cinematic">
 
         <div class="hero-overlay"></div>
 
-        <picture>
-            <source
-                srcset="images/top-img.webp"
-                type="image/webp">
+        <!-- HERO IMAGE -->
+        <div class="hero-img-wrapper">
 
-            <img
-                class="hero-bg-img"
-                src="images/top-img.jpeg"
-                width="1600"
-                height="900"
-                fetchpriority="high"
-                loading="eager"
-                alt="">
-        </picture>
+            <!-- Skeleton -->
+            <div class="hero-skeleton"></div>
+
+            <picture>
+                <source
+                    srcset="images/top-img.webp"
+                    type="image/webp">
+
+                <img
+                    class="hero-bg-img"
+                    src="images/top-img.webp"
+
+                    onload="
+                    this.closest('.hero-img-wrapper')
+                    .querySelector('.hero-skeleton')
+                    .style.display='none';
+                    "
+                >
+            </picture>
+
+        </div>
 
         <div class="container hero-cinematic-content">
 
@@ -514,10 +524,16 @@
             <div class="issue-grid">
                 <div class="issue-img-wrap">
                     <div class="issue-img">
-                        <img src="images/bell-tank.webp" width="600" height="450" loading="lazy" alt="Bell Tank" class="w-full h-full object-cover rounded-[18px] shadow-lg">
+                        <img src="images/bell-tank.webp"
+                        width="600"
+                        height="450"
+                        loading="lazy"
+                        alt="Bell Tank"
+                        class="w-full h-full object-cover rounded-[18px] shadow-lg">
                     </div>
-                    <div class="issue-label">Bell Tank</div>
-                </div>
+                <div class="issue-label">Bell Tank</div>
+
+            </div>
                 
 
                 <div class="issue-img-wrap">
@@ -866,7 +882,6 @@
 
                             <video
                                 src="videos/case-study-vid-2.mp4"
-                                autoplay
                                 muted
                                 loop
                                 playsinline
@@ -1115,7 +1130,6 @@
         <div class="container mx-auto px-5 max-w-6xl">
 
             <div class="text-center mb-16">
-                <span class="section-badge">Common Questions</span>
                 <h2 class="text-4xl font-black text-[#393185] uppercase">
                     Frequently Asked Questions
                 </h2>

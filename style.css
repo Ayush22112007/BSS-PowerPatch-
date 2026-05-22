@@ -2914,6 +2914,62 @@ grid-template-columns:1fr;
     display: none;
 }
 
+/* HERO SKELETON */
+
+.hero-img-wrapper{
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    z-index:0;
+}
+
+.hero-skeleton{
+
+    position:absolute;
+    inset:0;
+
+    z-index:2;
+
+    background:
+    linear-gradient(
+        90deg,
+        #1f1f1f 25%,
+        #2a2a2a 50%,
+        #1f1f1f 75%
+    );
+
+    background-size:200% 100%;
+
+    animation:heroSkeleton 1.4s linear infinite;
+}
+
+@keyframes heroSkeleton{
+
+0%{
+background-position:200% 0;
+}
+
+100%{
+background-position:-200% 0;
+}
+
+}
+
+.hero-bg-img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+}
+
 .risk-card-list {
     display: grid;
     gap: 0.8rem;

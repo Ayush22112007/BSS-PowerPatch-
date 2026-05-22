@@ -652,3 +652,7 @@ window.addEventListener(
         }
     });
 });
+
+video.addEventListener("loadeddata",()=>{
+skeleton.style.display="none";
+});
