@@ -2443,8 +2443,8 @@ grid-template-columns:1fr;
 
     max-width: 760px;
 
-    padding-top: 100px;
-    padding-bottom: 60px;
+    padding-top: 60px;
+    padding-bottom: 70px;
 
     margin-top: -60px;
 }
@@ -5006,4 +5006,91 @@ footer{
         right:0!important;
     }
 
+}
+
+/* =========================================
+   PERFECT HERO-IN-ONE-FRAME REFINEMENTS
+   ========================================= */
+.hero-cinematic {
+    position: relative !important;
+    height: 100vh !important;
+    height: 100svh !important;
+    min-height: 550px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.hero-cinematic-content {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    height: auto !important;
+    padding-top: 80px !important; /* Spacing for the sticky navbar */
+    padding-bottom: 30px !important;
+    margin-top: 0 !important; /* Reset any margin offsets that could cause shifting */
+    max-height: 100% !important;
+}
+
+/* Ensure typography stays perfectly sized and compact to fit in the viewport */
+.hero-title, .h1 {
+    font-size: clamp(2rem, 4.2vw, 3.8rem) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 1rem !important;
+}
+
+.hero-desc {
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem) !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.5rem !important;
+    max-width: 650px !important;
+}
+
+.hero-actions {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0 !important;
+    gap: 1rem !important;
+}
+
+/* Also optimize stats inside the hero for sf6.html to prevent vertical overflow */
+.hero-stats {
+    padding-top: 1rem !important;
+    margin-top: 1.5rem !important;
+    gap: clamp(1.5rem, 3vw, 3.5rem) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.hero-stat h3 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem) !important;
+    margin-bottom: 0.2rem !important;
+}
+
+.hero-stat p {
+    font-size: clamp(0.7rem, 1vw, 0.8rem) !important;
+}
+
+.hero-mini-tag {
+    margin-bottom: 1rem !important;
+}
+
+/* On extremely small or horizontal screens, make sure text scales nicely to keep everything inside one frame */
+@media (max-height: 680px) {
+    .hero-cinematic-content {
+        padding-top: 60px !important;
+    }
+    .hero-title, .h1 {
+        font-size: clamp(1.75rem, 3.2vw, 2.5rem) !important;
+        margin-bottom: 0.75rem !important;
+    }
+    .hero-desc {
+        font-size: 0.95rem !important;
+        margin-bottom: 1rem !important;
+    }
+    .hero-stats {
+        margin-top: 1rem !important;
+        padding-top: 0.75rem !important;
+    }
 }
