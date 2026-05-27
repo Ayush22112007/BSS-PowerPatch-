@@ -2759,6 +2759,7 @@ grid-template-columns:1fr;
     text-wrap: balance;
     letter-spacing: 0.04em;
     font-size: clamp(0.95rem, 2.65vw, 2.5rem);
+    color: var(--primary);
 }
 
 .problem-highlight--center {
@@ -4134,6 +4135,7 @@ footer{
     padding: 1.5rem 1rem;
     font-size: 1.5rem;
 }
+
 
 /* =========================================
    4K / ULTRAWIDE FIX (2100px+)

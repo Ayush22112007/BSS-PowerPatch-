@@ -1,8 +1,24 @@
 /* LeakXpert App Logic - Firebase Firestore version */
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { initializeAppCheck, ReCaptchaV3Provider } 
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app-check.js";
+async function submitEnquiry(formData){
+
+const firebase = await import('./firebase-init.js');
+
+const {
+db,
+collection,
+addDoc,
+serverTimestamp
+} = firebase;
+
+await addDoc(
+collection(db,"enquiries"),
+{
+...formData,
+createdAt:serverTimestamp()
+}
+);
+
+}
 
 // REPLACE WITH YOUR ACTUAL CONFIG
 const firebaseConfig = {
@@ -104,6 +120,12 @@ function addToCart(product) {
     showToast(`${product.name} added to cart 🛒`, "success");
     updateCartUI();
 }
+
+window.addEventListener(
+'load',
+()=>{
+lucide.createIcons();
+});
 
 function updateCartUI() {
     const cartBadge = document.getElementById('cart-badge');

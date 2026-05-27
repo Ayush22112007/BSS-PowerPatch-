@@ -34,7 +34,10 @@
     href="style.css">
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script
+    defer
+    src="https://unpkg.com/lucide@latest">
+    </script>
 
     <!-- Google Analytics -->
 
@@ -122,6 +125,8 @@
                 <img
                     class="hero-bg-img"
                     src="images/top-img.webp"
+                    alt="hero bg img"
+                    fetchpriority="high"
 
                     onload="
                     this.closest('.hero-img-wrapper')
@@ -875,7 +880,7 @@
                         width="600"
                         height="450"
                         loading="lazy"
-                        img id="main-product-img" src="images/transformer leak repair.jpeg" alt="Main Product Image">
+                        img id="main-product-img" src="images/product-overall.webp" alt="Main Product Image">
                     </div>
                     <!-- Thumbnails Bottom -->
                     <div class="product-thumbnail-list scrollbar-hide py-4 flex gap-4 overflow-x-auto">
@@ -902,7 +907,7 @@
                         width="102"
                         height="76"
                         loading="lazy"
-                        src="images/transformer leak repair.jpeg" alt="Primary Seal Details">
+                        src="images/product-gun.webp" alt="Primary Seal Details">
 
                         <img
                         class="thumbnail-item w-20 h-20 object-cover rounded-lg"
@@ -910,7 +915,7 @@
                         width="102"
                         height="76"
                         loading="lazy"
-                        src="images/transformer leak repair.jpeg" alt="Primary Seal Details">
+                        src="images/product-cartridge.webp" alt="Primary Seal Details">
 
                         <img
                         class="thumbnail-item w-20 h-20 object-cover rounded-lg"
@@ -918,7 +923,7 @@
                         width="102"
                         height="76"
                         loading="lazy"
-                        src="images/transformer leak repair.jpeg" alt="Primary Seal Details">
+                        src="images/product-stick.webp" alt="Primary Seal Details">
 
                     </div>
                 </div>
