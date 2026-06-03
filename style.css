@@ -47,6 +47,10 @@ body{
     max-width: 100%;
 }
 
+body{
+    background-color: black;
+}
+
 img{
     max-width:100%;
     height:auto;
@@ -1382,7 +1386,7 @@ nav:nth-of-type(1) > div:nth-of-type(1) {
 .product-main-image-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     transition: transform 0.5s ease;
 }
 
@@ -3993,6 +3997,11 @@ h2.text-4xl.font-black.text-\[\#393185\].uppercase {
     font-size: 3rem;
     margin-bottom: 1.5rem;
     display: block;
+}
+
+.diagnostic-list{
+    list-style: none;
+    padding-left: 0;
 }
 
 /* Why Repairs Fail */

@@ -1,23 +1,16 @@
 /* LeakXpert App Logic - Firebase Firestore version */
-async function submitEnquiry(formData){
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app-check.js";
 
-const firebase = await import('./firebase-init.js');
-
-const {
-db,
-collection,
-addDoc,
-serverTimestamp
-} = firebase;
-
-await addDoc(
-collection(db,"enquiries"),
-{
-...formData,
-createdAt:serverTimestamp()
-}
-);
-
+async function submitEnquiry(formData) {
+    await addDoc(
+        collection(db, "enquiries"),
+        {
+            ...formData,
+            createdAt: serverTimestamp()
+        }
+    );
 }
 
 // REPLACE WITH YOUR ACTUAL CONFIG
@@ -101,6 +94,19 @@ function showToast(message, type = "success") {
 }
 window.showToast = showToast;
 
+function openCart() {
+    const cartSidebar = document.getElementById('cartSidebar');
+    const cartOverlay = document.getElementById('cartOverlay');
+    if (cartSidebar && !cartSidebar.classList.contains('open')) {
+        cartSidebar.classList.add('open');
+        if (cartOverlay) cartOverlay.classList.add('show');
+        if (typeof gtag === 'function') {
+            gtag('event', 'cart_opened');
+        }
+    }
+}
+window.openCart = openCart;
+
 function addToCart(product) {
     console.log("Added:", product);
     const resolvedProductType = product.productType || currentProductType;
@@ -117,9 +123,18 @@ function addToCart(product) {
         item.qty++;
     }
 
+    // Immediately trigger Google Analytics add_to_cart tracking
+    if (typeof gtag === 'function') {
+        gtag('event', 'add_to_cart', {
+            product: product.name,
+            price: product.price
+        });
+    }
+
     showToast(`${product.name} added to cart 🛒`, "success");
     updateCartUI();
 }
+window.addToCart = addToCart;
 
 window.addEventListener(
 'load',
@@ -259,37 +274,94 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (navbar) {
-        let lastScrollY = window.scrollY;
-        let ticking = false;
+    const heroImg = document.querySelector('.hero-bg-img');
 
-        window.addEventListener('scroll', () => {
-            if (ticking) return;
-            ticking = true;
+    // --- Unified Scroll & Parallax & Engagement Engine ---
+    let lastScrollY = window.scrollY;
+    let scrollTicking = false;
+    let trackedScrolled = [];
 
-            window.requestAnimationFrame(() => {
-                const currentScrollY = window.scrollY;
-                const isScrollingUp = currentScrollY < lastScrollY - 6;
-                const isScrollingDown = currentScrollY > lastScrollY + 10;
+    const isMobile = () => window.innerWidth <= 768;
 
-                if (currentScrollY <= 40 || isScrollingUp) {
-                    navbar.classList.remove('navbar--hidden');
-                    navbar.classList.add('navbar--shown');
-                } else if (isScrollingDown && currentScrollY > 140) {
+    const onScrollTick = () => {
+        const currentScrollY = window.scrollY;
+
+        // 1. Smart Navbar Visibility Logic
+        if (navbar) {
+            if (currentScrollY <= 100) {
+                navbar.classList.remove('navbar--hidden');
+                navbar.classList.add('navbar--shown');
+            } else {
+                const scrollDiff = currentScrollY - lastScrollY;
+                if (scrollDiff > 5) {
+                    // Scrolling DOWN
                     navbar.classList.add('navbar--hidden');
                     navbar.classList.remove('navbar--shown');
                     if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
                         mobileMenu.classList.remove('flex');
-                        if (menuToggle) menuToggle.innerText = '\u2630';
+                        if (menuToggle) menuToggle.innerText = '☰';
+                    }
+                } else if (scrollDiff < -5) {
+                    // Scrolling UP
+                    navbar.classList.remove('navbar--hidden');
+                    navbar.classList.add('navbar--shown');
+                }
+            }
+        }
+
+        // 2. Hardware Accelerated Hero Parallax
+        if (heroImg) {
+            if (isMobile()) {
+                heroImg.style.transform = 'translate3d(0, 0, 0)';
+            } else {
+                const limit = window.innerHeight * 1.2;
+                if (currentScrollY >= 0 && currentScrollY < limit) {
+                    heroImg.style.transform = `translate3d(0, ${currentScrollY * 0.35}px, 0)`;
+                }
+            }
+        }
+
+        // 3. Scroll Engagement Analytics Percentage Tracking
+        const documentHeight = document.body.scrollHeight - window.innerHeight;
+        if (documentHeight > 0) {
+            const percent = Math.round((currentScrollY / documentHeight) * 100);
+            [25, 50, 75, 100].forEach(mark => {
+                if (percent >= mark && !trackedScrolled.includes(mark)) {
+                    trackedScrolled.push(mark);
+                    if (typeof gtag === 'function') {
+                        gtag('event', `scroll_${mark}`);
                     }
                 }
-
-                lastScrollY = currentScrollY;
-                ticking = false;
             });
-        }, { passive: true });
-    }
+        }
+
+        lastScrollY = currentScrollY;
+        scrollTicking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+        if (!scrollTicking) {
+            window.requestAnimationFrame(onScrollTick);
+            scrollTicking = true;
+        }
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+        if (heroImg) {
+            if (isMobile()) {
+                heroImg.style.transform = 'translate3d(0, 0, 0)';
+            } else {
+                if (!scrollTicking) {
+                    window.requestAnimationFrame(onScrollTick);
+                    scrollTicking = true;
+                }
+            }
+        }
+    }, { passive: true });
+
+    // Initial pass
+    onScrollTick();
 
     // --- Search functionality ---
     const searchIcon = document.getElementById('search-icon');
@@ -520,6 +592,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.showToast?.("Cart is empty", "info");
                 return;
             }
+            if (typeof gtag === 'function') {
+                gtag('event', 'begin_checkout');
+            }
             window.location.href = "checkout.html";
         });
     }
@@ -558,16 +633,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Product Gallery Logic ---
     const mainImg = document.getElementById('main-product-img');
     const thumbnails = document.querySelectorAll('.thumbnail-item');
-    
+
     if (mainImg && thumbnails.length > 0) {
         thumbnails.forEach(thumb => {
             thumb.addEventListener('click', () => {
                 mainImg.style.opacity = '0';
                 setTimeout(() => {
-                    mainImg.src = thumb.src;
+                    const relativeSrc = thumb.getAttribute('src');
+                    mainImg.src = relativeSrc;
+                    
+                    if (mainImg.hasAttribute('srcset')) {
+                        mainImg.setAttribute('srcset', `${relativeSrc} 600w`);
+                    }
+                    
                     mainImg.alt = thumb.alt;
                     mainImg.style.opacity = '1';
                 }, 300);
+
                 thumbnails.forEach(t => t.classList.remove('active'));
                 thumb.classList.add('active');
             });
@@ -577,104 +659,22 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartUI();
     if (typeof lucide !== 'undefined') lucide.createIcons();
 
-    // --- Hero Parallax ---
-    const heroImg = document.querySelector('.hero-bg-img');
-    if (heroImg) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const limit = window.innerHeight * 0.8; // Roughly hero height
-            if (scrolled < limit) {
-                // Move image slower than scroll (parallax)
-                heroImg.style.transform = `translateY(${scrolled * 0.6}px)`;
-            }
-        });
-    }
-});
-
-document.addEventListener("DOMContentLoaded",()=>{
-
     /* VIDEO PLAY / PAUSE */
+    const mainVideo = document.getElementById("problemVideo");
+    const bgVideo = document.querySelector(".video-bg");
+    const toggle = document.getElementById("videoToggle");
 
-    const mainVideo =
-    document.getElementById("problemVideo");
-
-    const bgVideo =
-    document.querySelector(".video-bg");
-
-    const toggle =
-    document.getElementById("videoToggle");
-
-    if(mainVideo && bgVideo && toggle){
-
-        toggle.addEventListener("click",()=>{
-
-            if(mainVideo.paused){
-
+    if (mainVideo && bgVideo && toggle) {
+        toggle.addEventListener("click", () => {
+            if (mainVideo.paused) {
                 mainVideo.play();
                 bgVideo.play();
-
-                toggle.innerHTML="⏸";
-
-            }else{
-
+                toggle.innerHTML = "⏸";
+            } else {
                 mainVideo.pause();
                 bgVideo.pause();
-
-                toggle.innerHTML="▶";
-
+                toggle.innerHTML = "▶";
             }
-
         });
-
     }
-
-});
-
-document
-.getElementById("btn-add-cart")
-?.addEventListener("click",()=>{
-    gtag(
-    'event',
-    'add_to_cart',
-    {
-        product:'Transformer Leak Kit',
-        price:50000
-    });
-});
-
-checkoutBtn?.addEventListener(
-    "click",
-    ()=>{
-    gtag(
-        'event',
-        'begin_checkout'
-    );
-});
-
-let tracked=[];
-
-window.addEventListener(
-"scroll",
-()=>{
-    const percent=Math.round(
-    (window.scrollY/
-    (document.body.scrollHeight-window.innerHeight))*100
-    );
-    [25,50,75,100]
-    .forEach(mark=>{
-    if(
-    percent>=mark &&
-        !tracked.includes(mark)
-        ){
-        tracked.push(mark);
-        gtag(
-        'event',
-        `scroll_${mark}`
-        );
-        }
-    });
-});
-
-video.addEventListener("loadeddata",()=>{
-skeleton.style.display="none";
 });

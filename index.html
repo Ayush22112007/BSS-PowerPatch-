@@ -719,7 +719,7 @@
                         Traditional Methods
                     </h3>
 
-                    <ul class="space-y-4">
+                    <ul class="space-y-4 diagnostic-list" >
                         <li>✕ Epoxy patches crack during transformer heating and cooling cycles</li>
                         <li>✕ Rubber pads and clamps loosen due to oil pressure and vibration</li>
                         <li>✕ Local fabricator repairs often fail within a few months</li>
@@ -733,7 +733,7 @@
                         LeakXpert Approach
                     </h3>
 
-                    <ul class="space-y-4">
+                    <ul class="space-y-4 diagnostic-list">
                         <li>✓ Seals active oil leaks without draining transformer oil</li>
                         <li>✓ Withstands temperature variation, vibration, and oil pressure</li>
                         <li>✓ Designed specifically for oil-filled transformers and equipment</li>
@@ -879,53 +879,68 @@
                     <!-- Main Image Top -->
                     <div class="product-main-image-wrap">
                         <img
+                        id="main-product-img"
                         width="600"
                         height="450"
                         loading="lazy"
-                        img id="main-product-img" src="images/product/product-overall.jpeg" alt="Main Product Image">
+                        src="images/product/product-overall.webp"
+                        srcset="images/product/product-overall.jpeg 600w"
+                        sizes="(max-width: 600px) 100vw, 600px"
+                        class="w-full h-full object-cover rounded-lg"
+                        alt="Main Product Image">
                     </div>
                     <!-- Thumbnails Bottom -->
                     <div class="product-thumbnail-list scrollbar-hide py-4 flex gap-4 overflow-x-auto">
 
                         <img
-                        class="thumbnail-item w-20 h-20 object-cover rounded-lg"
-                        src="images/product/product-overall.jpeg"
-                        width="102"
-                        height="76"
+                        class="thumbnail-item w-20 h-20 object-cover rounded-lg active"
+                        src="images/product/product-overall.webp"
+                        srcset="images/product/product-overall.webp 100w"
+                        sizes="80px"
+                        width="80"
+                        height="80"
                         loading="lazy"
-                        src="images/product/product-overall.jpeg" alt="Primary Seal Details">
+                        alt="Primary Seal Details">
 
                         <img
                         class="thumbnail-item w-20 h-20 object-cover rounded-lg"
-                        src="images/product/product-pouch.jpeg"
-                        width="102"
-                        height="76"
+                        src="images/product/product-pouch.webp"
+                        srcset="images/product/product-pouch.webp 100w"
+                        sizes="80px"
+                        width="80"
+                        height="80"
                         loading="lazy"
-                        src="images/product/product-pouch.jpeg" alt="Primary Seal Details">
+                        alt="Secondary Pouch Details">
 
                         <img
                         class="thumbnail-item w-20 h-20 object-cover rounded-lg"
-                        src="images/product/product-gun.jpeg"
-                        width="102"
-                        height="76"
+                        src="images/product/product-gun.webp"
+                        srcset="images/product/product-gun.webp 100w"
+                        sizes="80px"
+                        width="80"
+                        height="80"
                         loading="lazy"
-                        src="images/product/product-gun.jpeg" alt="Primary Seal Details">
+                        alt="Applicator Gun Details">
 
                         <img
                         class="thumbnail-item w-20 h-20 object-cover rounded-lg"
-                        src="images/product/product-cartridge.jpeg"
-                        width="102"
-                        height="76"
+                        src="images/product/product-cartridge.webp"
+                        srcset="images/product/product-cartridge.webp 100w"
+                        sizes="80px"
+                        width="80"
+                        height="80"
                         loading="lazy"
-                        src="images/product/product-cartridge.jpeg" alt="Primary Seal Details">
+                        alt="Mixing Cartridge Details">
 
                         <img
                         class="thumbnail-item w-20 h-20 object-cover rounded-lg"
-                        src="images/product/product-stick.jpeg"
-                        width="102"
-                        height="76"
+                        src="images/product/product-stick.webp"
+                        srcset="images/product/product-stick.webp 100w"
+                        sizes="80px"
+                        width="80"
+                        height="80"
                         loading="lazy"
-                        src="images/product/product-stick.jpeg" alt="Primary Seal Details">
+                        alt="Sealant Stick Details">
 
                     </div>
                 </div>
