@@ -31,9 +31,29 @@ const firebaseConfig = {
   measurementId: "G-ZG4LY5TX42"
 };
 
+const app = initializeApp(firebaseConfig);
 
 self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
 
+let appCheck;
+
+try{
+
+    appCheck=initializeAppCheck(app,{
+        provider:new ReCaptchaV3Provider(
+            '6LcNQtwsAAAAAH18q__7_kQQk926-EZeSoaBTkfZ'
+        ),
+        isTokenAutoRefreshEnabled:true
+    });
+
+}
+catch(err){
+
+    console.error(
+    "Firebase App Check failed:",
+    err);
+
+}
 
 // Enable debug token in development environments
 if (location.hostname === 'localhost' || location.hostname.includes('ais-dev') || location.hostname.includes('run.app')) {
@@ -98,9 +118,7 @@ function addToCart(product) {
     }
 
     showToast(`${product.name} added to cart 🛒`, "success");
-    requestAnimationFrame(()=>{
     updateCartUI();
-    });
 }
 
 window.addEventListener(
@@ -410,9 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     cart = cart.filter(i => !(i.name === name && i.productType === prodType));
                 }
             }
-            requestAnimationFrame(()=>{
-                updateCartUI();
-            });
+            updateCartUI();
         });
     }
 
@@ -439,18 +455,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         else if (action === "plus" && item) {
             item.qty++;
-            requestAnimationFrame(()=>{
-                updateCartUI();
-            });
+            updateCartUI();
         }
         else if (action === "minus" && item) {
             item.qty--;
             if (item.qty <= 0) {
                 cart = cart.filter(i => !(i.name === name && i.productType === currentProductType));
             }
-            requestAnimationFrame(()=>{
-                updateCartUI();
-            });
+            updateCartUI();
         }
     });
 
